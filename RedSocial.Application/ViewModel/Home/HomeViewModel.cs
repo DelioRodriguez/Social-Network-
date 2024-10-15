@@ -1,0 +1,9 @@
+﻿using RedSocial.Application.ViewModel.Posts;
+
+namespace RedSocial.Application.ViewModel.Home
+{
+    public class HomeViewModel
+    {
+        public List<PostViewModel> Posts { get; set; } = new List<PostViewModel>();
+    }
+}
