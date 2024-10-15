@@ -1,0 +1,17 @@
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\bin\Debug\net8.0\RedSocial.Infraestructure.Shared.deps.json
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\bin\Debug\net8.0\RedSocial.Infraestructure.Shared.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\bin\Debug\net8.0\RedSocial.Infraestructure.Shared.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\bin\Debug\net8.0\RedSocial.Application.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\bin\Debug\net8.0\RedSocial.Domain.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\bin\Debug\net8.0\RedSocial.Application.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\bin\Debug\net8.0\RedSocial.Domain.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.csproj.AssemblyReference.cache
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.AssemblyInfoInputs.cache
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.AssemblyInfo.cs
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.csproj.CoreCompileInputs.cache
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocia.6249CA31.Up2Date
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\refint\RedSocial.Infraestructure.Shared.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\ref\RedSocial.Infraestructure.Shared.dll

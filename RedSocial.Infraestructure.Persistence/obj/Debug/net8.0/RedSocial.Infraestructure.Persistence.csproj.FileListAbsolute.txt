@@ -1,0 +1,17 @@
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\bin\Debug\net8.0\RedSocial.Infraestructure.Persistence.deps.json
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\bin\Debug\net8.0\RedSocial.Infraestructure.Persistence.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\bin\Debug\net8.0\RedSocial.Infraestructure.Persistence.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\bin\Debug\net8.0\RedSocial.Application.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\bin\Debug\net8.0\RedSocial.Domain.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\bin\Debug\net8.0\RedSocial.Application.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\bin\Debug\net8.0\RedSocial.Domain.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocial.Infraestructure.Persistence.csproj.AssemblyReference.cache
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocial.Infraestructure.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocial.Infraestructure.Persistence.AssemblyInfoInputs.cache
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocial.Infraestructure.Persistence.AssemblyInfo.cs
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocial.Infraestructure.Persistence.csproj.CoreCompileInputs.cache
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocia.83800019.Up2Date
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocial.Infraestructure.Persistence.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\refint\RedSocial.Infraestructure.Persistence.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\RedSocial.Infraestructure.Persistence.pdb
+C:\Programacion 3\RedSocial\RedSocial.Infraestructure.Persistence\obj\Debug\net8.0\ref\RedSocial.Infraestructure.Persistence.dll

@@ -1,0 +1,55 @@
+﻿@model RedSocial.Application.ViewModel.Home.HomeViewModel
+
+<h2>Publicaciones</h2>
+
+<!-- Formulario para crear una nueva publicación -->
+<form asp-action="CreatePost" method="post">
+    <textarea name="Content" placeholder="Escribe tu publicación..." required></textarea>
+    <input type="file" name="ImagePath" />
+    <input type="text" name="YoutubeUrl" placeholder="Enlace de Youtube" />
+    <button type="submit">Publicar</button>
+</form>
+
+<!-- Listar publicaciones -->
+@foreach (var post in Model.Posts)
+{
+    <div>
+        <h3>@post.UserName</h3>
+        <p>@post.Content</p>
+        @if (!string.IsNullOrEmpty(post.ImagePath))
+        {
+            <img src="@post.ImagePath" alt="Imagen" />
+        }
+        @if (!string.IsNullOrEmpty(post.YoutubeUrl))
+        {
+            <iframe src="@post.YoutubeUrl" frameborder="0" allowfullscreen></iframe>
+        }
+
+        <!-- Mostrar comentarios -->
+        <h4>Comentarios</h4>
+        @foreach (var comment in post.Comments)
+        {
+            <div>
+                <strong>@comment.UserName:</strong> @comment.Content
+                <form asp-action="DeleteComment" method="post">
+                    <input type="hidden" name="id" value="@comment.Id" />
+                    <input type="hidden" name="postId" value="@post.Id" />
+                    <button type="submit">Eliminar Comentario</button>
+                </form>
+            </div>
+        }
+
+        <!-- Formulario para agregar un nuevo comentario -->
+        <form asp-action="CreateComment" method="post">
+            <input type="hidden" name="postId" value="@post.Id" />
+            <textarea name="Content" placeholder="Escribe un comentario..." required></textarea>
+            <button type="submit">Comentar</button>
+        </form>
+
+        <!-- Eliminar publicación -->
+        <form asp-action="DeletePost" method="post">
+            <input type="hidden" name="id" value="@post.Id" />
+            <button type="submit">Eliminar Publicación</button>
+        </form>
+    </div>
+}

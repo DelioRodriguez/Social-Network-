@@ -1,0 +1,15 @@
+C:\Programacion 3\RedSocial\RedSocial.Application\bin\Debug\net8.0\RedSocial.Application.deps.json
+C:\Programacion 3\RedSocial\RedSocial.Application\bin\Debug\net8.0\RedSocial.Application.dll
+C:\Programacion 3\RedSocial\RedSocial.Application\bin\Debug\net8.0\RedSocial.Application.pdb
+C:\Programacion 3\RedSocial\RedSocial.Application\bin\Debug\net8.0\RedSocial.Domain.dll
+C:\Programacion 3\RedSocial\RedSocial.Application\bin\Debug\net8.0\RedSocial.Domain.pdb
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.csproj.AssemblyReference.cache
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.AssemblyInfoInputs.cache
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.AssemblyInfo.cs
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.csproj.CoreCompileInputs.cache
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocia.95FE89BF.Up2Date
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.dll
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\refint\RedSocial.Application.dll
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.pdb
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\ref\RedSocial.Application.dll

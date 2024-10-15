@@ -1,0 +1,70 @@
+﻿@model RedSocial.Application.ViewModel.Users.UserRegisterViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Crear Cuenta";
+}
+
+<div class="bg-image" style="background-image: url('/images/register-bg.jpg');">
+    <div class="overlay d-flex justify-content-center align-items-center">
+        <div class="glass-card">
+            <h2 class="text-center mb-4">Crear Cuenta</h2>
+            <form asp-action="Register" method="post" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="FirstName" class="form-label">Nombre</label>
+                        <input asp-for="FirstName" class="form-control glass-input" placeholder="Nombre" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="LastName" class="form-label">Apellido</label>
+                        <input asp-for="LastName" class="form-control glass-input" placeholder="Apellido" />
+                        <span asp-validation-for="LastName" class="text-danger"></span> 
+                    </div>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Username" class="form-label">Usuario</label>
+                    <input asp-for="Username" class="form-control glass-input" placeholder="Elige un usuario" />
+                    <span asp-validation-for="Username" class="text-danger"></span> 
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Email" class="form-label">Correo Electrónico</label>
+                    <input asp-for="Email" type="email" class="form-control glass-input" placeholder="ejemplo@correo.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span> 
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Phone" class="form-label">Teléfono</label>
+                    <input asp-for="Phone" type="tel" class="form-control glass-input" placeholder="Número de teléfono" />
+                    <span asp-validation-for="Phone" class="text-danger"></span> 
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="ProfilePicture" class="form-label">Foto de Perfil</label>
+                    <input asp-for="ProfilePicture" type="file" class="form-control glass-input" />
+                    <span asp-validation-for="ProfilePicture" class="text-danger"></span> 
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Password" class="form-label">Contraseña</label>
+                    <input asp-for="Password" type="password" class="form-control glass-input" placeholder="Crea una contraseña" />
+                    <span asp-validation-for="Password" class="text-danger"></span> 
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control glass-input" placeholder="Confirma tu contraseña" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span> 
+                </div>
+                <button type="submit" class="btn btn-primary-custom w-100 mb-3">Registrarse</button>
+            </form>
+            <hr class="my-4" />
+            <div class="text-center">
+                <a asp-action="Login" class="btn btn-outline-custom w-100">¿Ya tienes una cuenta? Inicia Sesión</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

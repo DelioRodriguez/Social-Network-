@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Verificación de Email";
+}
+
+<div class="bg-image" style="background-image: url('/images/email-verification-bg.jpg');">
+    <div class="overlay d-flex justify-content-center align-items-center">
+        <div class="glass-card text-center p-5">
+            <h2 class="mb-4">Verificación de Email</h2>
+            <p class="mb-4">@ViewBag.Message</p>
+            <a asp-action="Login" class="btn btn-primary-custom btn-large">Ir a Iniciar Sesión</a>
+        </div>
+    </div>
+</div>
