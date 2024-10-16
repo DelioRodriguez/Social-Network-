@@ -13,3 +13,4 @@ C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.App
 C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\refint\RedSocial.Application.dll
 C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.pdb
 C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\ref\RedSocial.Application.dll
+C:\Programacion 3\RedSocial\RedSocial.Application\obj\Debug\net8.0\RedSocial.Application.sourcelink.json

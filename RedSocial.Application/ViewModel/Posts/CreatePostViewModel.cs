@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace RedSocial.Application.ViewModel.Posts
     public class CreatePostViewModel
     {
         public string Content { get; set; }
-        public string? ImagePath { get; set; }
+        public IFormFile? ImagePath { get; set; }
         public string? YoutubeUrl { get; set; }
     }
 }

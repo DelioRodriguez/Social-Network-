@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RedSocial.Application.Interfaces.Services;
+using RedSocial.Application.Services;
 using RedSocial.Application.ViewModel.Users;
 using System.Security.Claims;
 
@@ -11,10 +13,13 @@ namespace RedSocialWebApp.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-
-        public AccountController(IUserService user)
+        private readonly IMapper _mapper;
+        private readonly IPostService _postService;
+        public AccountController(IUserService user, IMapper mapper, IPostService postService)
         {
             _userService = user;
+            _mapper = mapper;
+            _postService = postService;
         }
 
         public IActionResult Index()
@@ -47,11 +52,18 @@ namespace RedSocialWebApp.Controllers
                     return View(model);
                 }
 
-                var claims = new List<Claim>
+                // Verifica que el Id esté presente antes de asignarlo a claims
+                if (user.Id == 0) // O null, dependiendo de tu tipo
                 {
-                    new Claim(ClaimTypes.Name, user.Username),
+                    ModelState.AddModelError(string.Empty, "Error al obtener el identificador del usuario.");
+                    return View(model);
+                }
 
-                };
+                var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.Username)
+        };
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
@@ -66,6 +78,40 @@ namespace RedSocialWebApp.Controllers
                 return View(model);
             }
         }
+        public async Task<IActionResult> Profile()
+        {
+            // Obtener el ID del usuario actual desde los claims
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userIdClaim == null)
+            {
+                return NotFound(); // O maneja el error según lo necesites
+            }
+
+            int userId = int.Parse(userIdClaim.Value); // Asegúrate de que el valor del claim se puede convertir a int
+
+            // Obtener usuario por ID
+            var user = await _userService.GetByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Obtener publicaciones del usuario
+            var posts = await _postService.GetPostsByUserIdAsync(userId); // Asegúrate de tener este método
+
+            // Crear modelo de vista
+            var model = new UserProfileViewModel
+            {
+                ProfilePicture = user.ProfilePicture,
+                FullName = $"{user.FirstName} {user.LastName}",
+                Posts = posts
+            };
+
+            return View(model);
+        }
+
+
 
         [AllowAnonymous]
         public IActionResult Register() => View(new UserRegisterViewModel());
@@ -134,5 +180,39 @@ namespace RedSocialWebApp.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
+
+        [Authorize]
+        public async Task<IActionResult> EditProfile()
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var user = await _userService.GetByIdAsync(userId); 
+
+            var model = _mapper.Map<UserProfileEditViewModel>(user);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> EditProfile(UserProfileEditViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                await _userService.UpdateProfileAsync(model, userId);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(model);
+            }
+        }
+
     }
 }

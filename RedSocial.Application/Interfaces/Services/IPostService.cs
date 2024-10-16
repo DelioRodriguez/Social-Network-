@@ -1,4 +1,5 @@
-﻿using RedSocial.Domain.Entities;
+﻿using RedSocial.Application.ViewModel.Posts;
+using RedSocial.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace RedSocial.Application.Interfaces.Services
         Task<Post> CreatePostAsync(Post post);
         Task<bool> UpdatePostAsync(Post post);
         Task<bool> DeletePostAsync(int id);
+        Task<List<PostViewModel>> GetPostsByUserIdAsync(int userId);
     }
 }

@@ -1,5 +1,7 @@
-﻿using RedSocial.Application.Interfaces.Repositories;
+﻿using AutoMapper;
+using RedSocial.Application.Interfaces.Repositories;
 using RedSocial.Application.Interfaces.Services;
+using RedSocial.Application.ViewModel.Posts;
 using RedSocial.Domain.Entities;
 
 
@@ -8,12 +10,20 @@ namespace RedSocial.Application.Services
     public class PostService : IPostService
     {
         private readonly IPostRepository _postRepository;
-
-        public PostService(IPostRepository postRepository)
+        private readonly IMapper _mapper;
+        public PostService(IPostRepository postRepository, IMapper mapper)
         {
             _postRepository = postRepository;
+            _mapper = mapper;
         }
 
+        public async Task<List<PostViewModel>> GetPostsByUserIdAsync(int userId)
+        {
+            var posts = await _postRepository.GetPostsByUserIdAsync(userId);
+
+            
+            return _mapper.Map<List<PostViewModel>>(posts);
+        }
         public async Task<IEnumerable<Post>> GetAllPostsAsync()
         {
             return await _postRepository.GetAllPostsAsync();

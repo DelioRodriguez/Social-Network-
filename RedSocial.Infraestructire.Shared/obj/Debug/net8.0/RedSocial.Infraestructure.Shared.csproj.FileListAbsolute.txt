@@ -15,3 +15,4 @@ C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\Re
 C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\refint\RedSocial.Infraestructure.Shared.dll
 C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.pdb
 C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\ref\RedSocial.Infraestructure.Shared.dll
+C:\Programacion 3\RedSocial\RedSocial.Infraestructire.Shared\obj\Debug\net8.0\RedSocial.Infraestructure.Shared.sourcelink.json

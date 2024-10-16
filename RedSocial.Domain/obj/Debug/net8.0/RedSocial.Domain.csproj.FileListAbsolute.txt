@@ -12,3 +12,4 @@ C:\Programacion 3\RedSocial\RedSocial.Domain\obj\Debug\net8.0\refint\RedSocial.D
 C:\Programacion 3\RedSocial\RedSocial.Domain\obj\Debug\net8.0\RedSocial.Domain.pdb
 C:\Programacion 3\RedSocial\RedSocial.Domain\obj\Debug\net8.0\RedSocial.Domain.genruntimeconfig.cache
 C:\Programacion 3\RedSocial\RedSocial.Domain\obj\Debug\net8.0\ref\RedSocial.Domain.dll
+C:\Programacion 3\RedSocial\RedSocial.Domain\obj\Debug\net8.0\RedSocial.Domain.sourcelink.json

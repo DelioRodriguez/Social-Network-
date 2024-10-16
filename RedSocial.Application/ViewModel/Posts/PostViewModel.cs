@@ -15,6 +15,8 @@ namespace RedSocial.Application.ViewModel.Posts
         public string? YoutubeUrl { get; set; }
         public string UserName { get; set; }
         public DateTime CreatedAt { get; set; }
+        public int UserId { get; set; }
+        public string UserProfileImage { get; set; }
         public List<CommentViewModel> Comments { get; set; } = new List<CommentViewModel>();
     }
 }

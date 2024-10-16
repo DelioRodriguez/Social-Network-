@@ -9,7 +9,8 @@ namespace RedSocial.Application.Interfaces.Services
         Task<UserLoginViewModel> LoginAsync(UserLoginViewModel model);
         Task SendVerificationEmailAsync(User user);
         Task ResetPasswordAsync(ForgotPasswordViewModel model);
-
+        Task UpdateProfileAsync(UserProfileEditViewModel model, int userId);
+        Task<User> GetByIdAsync(int userId);
         Task ActivateUserAsync(int userId);
     }
 

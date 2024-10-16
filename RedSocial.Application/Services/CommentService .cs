@@ -22,7 +22,10 @@ namespace RedSocial.Application.Services
         {
             return await _commentRepository.GetCommentsByPostIdAsync(postId);
         }
-
+        public async Task<Comment> GetCommentByIdAsync(int id)
+        {
+            return await _commentRepository.GetByIdAsync(id);
+        }
         public async Task<Comment> CreateCommentAsync(Comment comment)
         {
             return await _commentRepository.CreateCommentAsync(comment);

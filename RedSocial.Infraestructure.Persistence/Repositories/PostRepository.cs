@@ -23,6 +23,13 @@ namespace RedSocial.Infraestructure.Persistence.Repositories
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
         }
+        public async Task<List<Post>> GetPostsByUserIdAsync(int userId)
+        {
+            return await _context.Posts
+                .Where(post => post.UserId == userId)
+                .Include(post => post.User) // Asegúrate de incluir la entidad de usuario para el mapeo
+                .ToListAsync();
+        }
 
         public async Task<Post> CreatePostAsync(Post post)
         {

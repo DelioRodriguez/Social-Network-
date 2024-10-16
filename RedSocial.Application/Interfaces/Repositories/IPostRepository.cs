@@ -8,5 +8,6 @@ namespace RedSocial.Application.Interfaces.Repositories
         Task<Post> CreatePostAsync(Post post);
         Task<bool> UpdatePostAsync(Post post);
         Task<bool> DeletePostAsync(int id);
+        Task<List<Post>> GetPostsByUserIdAsync(int userId);
     }
 }

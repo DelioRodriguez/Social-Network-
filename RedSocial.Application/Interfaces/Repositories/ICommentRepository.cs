@@ -12,5 +12,7 @@ namespace RedSocial.Application.Interfaces.Repositories
         Task<IEnumerable<Comment>> GetCommentsByPostIdAsync(int postId);
         Task<Comment> CreateCommentAsync(Comment comment);
         Task<bool> DeleteCommentAsync(int id);
+
+        Task<Comment> GetByIdAsync(int id);
     }
 }

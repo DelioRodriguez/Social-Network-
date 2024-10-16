@@ -23,6 +23,10 @@ namespace RedSocial.Infraestructure.Persistence.Repositories
                 .OrderByDescending(c => c.CreatedAt)
                 .ToListAsync();
         }
+        public async Task<Comment> GetByIdAsync(int id)
+        {
+            return await _context.Comments.FindAsync(id);
+        }
 
         public async Task<Comment> CreateCommentAsync(Comment comment)
         {

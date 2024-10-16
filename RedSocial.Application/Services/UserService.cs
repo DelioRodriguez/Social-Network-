@@ -33,9 +33,14 @@ namespace RedSocial.Application.Services
             {
                 throw new InvalidOperationException("Usuario no se encuentra activo, por favor verifica tu email");
             }
-            return _mapper.Map<UserLoginViewModel>(user);
-            
+
+            var userLoginViewModel = _mapper.Map<UserLoginViewModel>(user);
+
+            userLoginViewModel.Id = user.Id; 
+
+            return userLoginViewModel;
         }
+
 
 
         public async Task<UserRegisterViewModel> RegisterAsync(UserRegisterViewModel model)
@@ -133,8 +138,50 @@ namespace RedSocial.Application.Services
 
             await _emailService.SendAsync(emailRequest);
         }
+        public async Task UpdateProfileAsync(UserProfileEditViewModel model, int userId)
+        {
+            var user = await _repository.GetByIdAsync(userId);
+            if (user == null)
+            {
+                throw new InvalidOperationException("Usuario no encontrado.");
+            }
 
+            _mapper.Map(model, user);
 
+            if (!string.IsNullOrEmpty(model.Password))
+            {
+                user.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            }
+
+            // Manejo de la foto de perfil
+            if (model.ProfilePicture != null && model.ProfilePicture.Length > 0)
+            {
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                var fileExtension = Path.GetExtension(model.ProfilePicture.FileName).ToLowerInvariant();
+
+                if (!allowedExtensions.Contains(fileExtension))
+                {
+                    throw new InvalidOperationException("Formato de archivo no permitido. Solo se permiten archivos con extensiones .jpg, .jpeg o .png.");
+                }
+
+                var fileName = $"{Guid.NewGuid()}_{model.ProfilePicture.FileName}";
+                var filePath = Path.Combine("wwwroot/images/profile_pictures", fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await model.ProfilePicture.CopyToAsync(stream);
+                }
+
+                user.ProfilePicture = $"/images/profile_pictures/{fileName}";
+            }
+
+            await _repository.UpdateAsync(user);
+            await _repository.SaveChangesAsync();
+        }
+        public async Task<User> GetByIdAsync(int userId)
+        {
+            return await _repository.GetByIdAsync(userId);
+        }
         public async Task ActivateUserAsync(int userId)
         {
             var user = await _repository.GetByIdAsync(userId);

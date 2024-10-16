@@ -6,6 +6,7 @@ namespace RedSocial.Application.ViewModel.Users
 {
     public class UserLoginViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string Username { get; set; }
 
