@@ -22,7 +22,9 @@
 
 
 	<ItemGroup>
+	  <Folder Include="wwwroot\images\Font\" />
 	  <Folder Include="wwwroot\images\images_post\" />
+	  <Folder Include="wwwroot\images\image_post\" />
 	  <Folder Include="wwwroot\images\profile_pictures\" />
 	</ItemGroup>
 

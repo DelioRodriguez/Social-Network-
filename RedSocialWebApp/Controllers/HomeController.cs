@@ -15,26 +15,27 @@ namespace RedSocialWebApp.Controllers
     {
         private readonly IPostService _postService;
         private readonly ICommentService _commentService;
+        private readonly ICommentReplyService _commentReplyService;
         private readonly IMapper _mapper;
 
-        public HomeController(IPostService postService, ICommentService commentService, IMapper mapper)
+        public HomeController(IPostService postService, ICommentService commentService, IMapper mapper, ICommentReplyService commentReplyService)
         {
             _postService = postService;
             _commentService = commentService;
             _mapper = mapper;
+            _commentReplyService = commentReplyService;
         }
 
         public async Task<IActionResult> Index()
         {
             var posts = await _postService.GetAllPostsAsync();
 
-            // Mapeo de las publicaciones a PostViewModel usando AutoMapper
             var postViewModels = _mapper.Map<List<PostViewModel>>(posts);
 
             var viewModel = new HomeViewModel
             {
                 Posts = postViewModels,
-                CurrentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)) // Obtener el ID del usuario autenticado
+                CurrentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))
             };
 
             return View(viewModel);
@@ -43,12 +44,10 @@ namespace RedSocialWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePost(CreatePostViewModel model)
         {
-            // Si el modelo no es válido, redirigir a "Index"
             if (!ModelState.IsValid) return RedirectToAction("Index");
 
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            // Verificar si el contenido está vacío cuando se intenta publicar una imagen o un video
             if ((model.ImagePath != null && model.ImagePath.Length > 0) &&
                 string.IsNullOrWhiteSpace(model.Content) ||
                 (!string.IsNullOrEmpty(model.YoutubeUrl) && string.IsNullOrWhiteSpace(model.Content)))
@@ -57,12 +56,9 @@ namespace RedSocialWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-
-            // Mapeo del modelo a la entidad Post
             var post = _mapper.Map<Post>(model);
             post.UserId = userId;
 
-            // Manejar la subida de la imagen
             if (model.ImagePath != null && model.ImagePath.Length > 0)
             {
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/images_post", model.ImagePath.FileName);
@@ -73,15 +69,12 @@ namespace RedSocialWebApp.Controllers
                 post.ImagePath = $"/images/images_post/{model.ImagePath.FileName}";
             }
 
-            // Asignar el enlace de YouTube si existe
             if (!string.IsNullOrEmpty(model.YoutubeUrl))
             {
-                // Validar el enlace de YouTube y extraer el ID
                 string videoId = null;
                 var uri = new Uri(model.YoutubeUrl);
                 var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
 
-                // Extraer el ID del video de la URL
                 if (query["v"] != null)
                 {
                     videoId = query["v"];
@@ -93,7 +86,7 @@ namespace RedSocialWebApp.Controllers
 
                 if (!string.IsNullOrEmpty(videoId))
                 {
-                    post.YoutubeUrl = $"https://www.youtube.com/embed/{videoId}"; // Guardar el enlace del iframe
+                    post.YoutubeUrl = $"https://www.youtube.com/embed/{videoId}"; 
                 }
                 else
                 {
@@ -102,17 +95,9 @@ namespace RedSocialWebApp.Controllers
                 }
             }
 
-            // Crear la publicación
             await _postService.CreatePostAsync(post);
             return RedirectToAction("Index");
         }
-
-
-
-
-
-
-
 
         [HttpPost]
         public async Task<IActionResult> CreateComment(CreateCommentViewModel model)
@@ -137,12 +122,42 @@ namespace RedSocialWebApp.Controllers
 
             if (post == null || post.UserId != userId)
             {
-                return Forbid(); // Denegar acceso si el post no le pertenece
+                return Forbid(); 
             }
 
             await _postService.DeletePostAsync(id);
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateReply(CreateCommentReplyViewModel model)
+        {
+            if (!ModelState.IsValid) return RedirectToAction("Index");
+
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            var reply = _mapper.Map<CommentReply>(model);
+            reply.UserId = userId;
+
+            await _commentReplyService.CreateAsync(reply);
+            return RedirectToAction("Index");
+        }
+
+        
+        [HttpPost]
+        public async Task<IActionResult> DeleteReply(int id)
+        {
+            var reply = await _commentReplyService.GetByIdAsync(id);
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            if (reply == null || reply.UserId != userId)
+            {
+                return Forbid();
+            }
+
+            await _commentReplyService.DeleteAsync(id);
+            return RedirectToAction("Index");
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> DeleteComment(int id)
@@ -152,7 +167,7 @@ namespace RedSocialWebApp.Controllers
 
             if (comment == null || comment.UserId != userId)
             {
-                return Forbid(); // Denegar acceso si el comentario no le pertenece
+                return Forbid(); 
             }
 
             await _commentService.DeleteCommentAsync(id);

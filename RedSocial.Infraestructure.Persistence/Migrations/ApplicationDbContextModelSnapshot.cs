@@ -37,9 +37,6 @@ namespace RedSocial.Infraestructure.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ParentCommentId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PostId")
                         .HasColumnType("int");
 
@@ -51,13 +48,38 @@ namespace RedSocial.Infraestructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParentCommentId");
-
                     b.HasIndex("PostId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("RedSocial.Domain.Entities.CommentReply", b =>
+                {
+                    b.Property<int>("ReplyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReplyId"));
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReplyId");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CommentReplies");
                 });
 
             modelBuilder.Entity("RedSocial.Domain.Entities.FriendShip", b =>
@@ -208,11 +230,6 @@ namespace RedSocial.Infraestructure.Persistence.Migrations
 
             modelBuilder.Entity("RedSocial.Domain.Entities.Comment", b =>
                 {
-                    b.HasOne("RedSocial.Domain.Entities.Comment", "ParentComment")
-                        .WithMany("Replies")
-                        .HasForeignKey("ParentCommentId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("RedSocial.Domain.Entities.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
@@ -225,9 +242,26 @@ namespace RedSocial.Infraestructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ParentComment");
-
                     b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RedSocial.Domain.Entities.CommentReply", b =>
+                {
+                    b.HasOne("RedSocial.Domain.Entities.Comment", "Comment")
+                        .WithMany("CommentReplies")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RedSocial.Domain.Entities.User", "User")
+                        .WithMany("CommentReplies")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Comment");
 
                     b.Navigation("User");
                 });
@@ -275,7 +309,7 @@ namespace RedSocial.Infraestructure.Persistence.Migrations
 
             modelBuilder.Entity("RedSocial.Domain.Entities.Comment", b =>
                 {
-                    b.Navigation("Replies");
+                    b.Navigation("CommentReplies");
                 });
 
             modelBuilder.Entity("RedSocial.Domain.Entities.Post", b =>
@@ -285,6 +319,8 @@ namespace RedSocial.Infraestructure.Persistence.Migrations
 
             modelBuilder.Entity("RedSocial.Domain.Entities.User", b =>
                 {
+                    b.Navigation("CommentReplies");
+
                     b.Navigation("Comments");
 
                     b.Navigation("Friendships");

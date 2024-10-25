@@ -24,6 +24,7 @@ namespace RedSocial.Domain.Entities
 
         public ICollection<Post> Posts { get; set; } = new List<Post>();
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+        public ICollection<CommentReply> CommentReplies { get; set; }
         public ICollection<FriendShip> Friendships { get; set; } = new List<FriendShip>();
 
 

@@ -133,8 +133,25 @@ namespace RedSocial.Application.Services
             {
                 To = user.Email,
                 Subject = "Email Verification",
-                Body = $"Por favor verifica tu email clickeando <a href=\"{verificationLink}\">aquí</a>"
+                Body = $@"
+             <div style='font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; text-align: center;'>
+              <div style='max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 10px;'>
+                <h2 style='color: #4CAF50;'>¡Verificación de Email!</h2>
+                <p style='font-size: 16px; color: #333;'>Hola,</p>
+                <p style='font-size: 16px; color: #333;'>
+                    Gracias por registrarte. Por favor, confirma tu dirección de correo electrónico haciendo clic en el botón de abajo:
+                </p>
+                <a href=""{verificationLink}"" 
+                   style='display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 16px;'>
+                   Verificar Email
+                </a>
+                <p style='margin-top: 20px; font-size: 14px; color: #777;'>
+                    Si no te has registrado en nuestra plataforma, puedes ignorar este mensaje.
+                </p>
+              </div>
+             </div>"
             };
+
 
             await _emailService.SendAsync(emailRequest);
         }

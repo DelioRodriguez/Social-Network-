@@ -32,6 +32,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\Font\login.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>RedSocialWebApp</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/RedSocialWebApp</BasePath>
+      <RelativePath>images/Font/login.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\Font\login.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-12 223514.png))">
       <SourceType>Package</SourceType>
       <SourceId>RedSocialWebApp</SourceId>
@@ -48,12 +64,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-12 223514.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-12 223514_5a960e9c-c2bf-4376-a5ff-34e89973eb60.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\d6901be1-c20c-4a19-9003-a1082def1390_Screenshot 2024-09-12 223514.png))">
       <SourceType>Package</SourceType>
       <SourceId>RedSocialWebApp</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/images_post/Screenshot 2024-09-12 223514_5a960e9c-c2bf-4376-a5ff-34e89973eb60.png</RelativePath>
+      <RelativePath>images/profile_pictures/d6901be1-c20c-4a19-9003-a1082def1390_Screenshot 2024-09-12 223514.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -62,183 +78,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-12 223514_5a960e9c-c2bf-4376-a5ff-34e89973eb60.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-13 005324.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/images_post/Screenshot 2024-09-13 005324.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-13 005324.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-20 235304.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/images_post/Screenshot 2024-09-20 235304.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\images_post\Screenshot 2024-09-20 235304.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\image_post\Screenshot 2024-09-13 005324.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/image_post/Screenshot 2024-09-13 005324.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\image_post\Screenshot 2024-09-13 005324.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\03ccd575-cf33-4441-be23-d4b4107d4b0a_Screenshot 2024-09-20 235304.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/03ccd575-cf33-4441-be23-d4b4107d4b0a_Screenshot 2024-09-20 235304.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\03ccd575-cf33-4441-be23-d4b4107d4b0a_Screenshot 2024-09-20 235304.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\0c6233ad-99ef-450a-a46c-260d90d4a0dc_Screenshot 2024-09-13 005324.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/0c6233ad-99ef-450a-a46c-260d90d4a0dc_Screenshot 2024-09-13 005324.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\0c6233ad-99ef-450a-a46c-260d90d4a0dc_Screenshot 2024-09-13 005324.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\6c5a2d61-3ce3-461a-81e0-f4316a1ff48c_Mini proyecto_ Social network.pdf))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/6c5a2d61-3ce3-461a-81e0-f4316a1ff48c_Mini proyecto_ Social network.pdf</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\6c5a2d61-3ce3-461a-81e0-f4316a1ff48c_Mini proyecto_ Social network.pdf))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\6df030da-7dc2-43b8-a0e9-2629a00fdb42_Screenshot 2024-09-27 181954.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/6df030da-7dc2-43b8-a0e9-2629a00fdb42_Screenshot 2024-09-27 181954.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\6df030da-7dc2-43b8-a0e9-2629a00fdb42_Screenshot 2024-09-27 181954.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\815b3a20-ef37-4c11-ba54-acc087aaaf1c_Screenshot 2024-09-28 152953.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/815b3a20-ef37-4c11-ba54-acc087aaaf1c_Screenshot 2024-09-28 152953.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\815b3a20-ef37-4c11-ba54-acc087aaaf1c_Screenshot 2024-09-28 152953.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\8177b7ca-7306-4a29-a591-191d7f4dca47_Screenshot 2024-09-12 223514.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/8177b7ca-7306-4a29-a591-191d7f4dca47_Screenshot 2024-09-12 223514.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\8177b7ca-7306-4a29-a591-191d7f4dca47_Screenshot 2024-09-12 223514.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\d8df8864-3d6c-48ac-9069-058f06a630b9_Screenshot 2024-09-20 235304.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/d8df8864-3d6c-48ac-9069-058f06a630b9_Screenshot 2024-09-20 235304.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\d8df8864-3d6c-48ac-9069-058f06a630b9_Screenshot 2024-09-20 235304.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\df7a0cad-315f-4e61-9acb-9479cce5484a_Screenshot 2024-09-12 223514.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>RedSocialWebApp</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/RedSocialWebApp</BasePath>
-      <RelativePath>images/profile_pictures/df7a0cad-315f-4e61-9acb-9479cce5484a_Screenshot 2024-09-12 223514.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\df7a0cad-315f-4e61-9acb-9479cce5484a_Screenshot 2024-09-12 223514.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\profile_pictures\d6901be1-c20c-4a19-9003-a1082def1390_Screenshot 2024-09-12 223514.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\site.js))">
       <SourceType>Package</SourceType>

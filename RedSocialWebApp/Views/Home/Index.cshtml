@@ -1,26 +1,33 @@
 ﻿@model RedSocial.Application.ViewModel.Home.HomeViewModel
 
+@{
+    Layout = null;
+    ViewData["Title"] = "Inicio";
+}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>@ViewData["Title"] - SRc Network</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             display: flex;
-            background-color: #f5f6fa; /* Color de fondo claro */
+            background-color: #f5f6fa;
             transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Arial', sans-serif;
         }
 
-            body.dark-mode {
-                background-color: #343a40; /* Color de fondo oscuro */
-                color: #ffffff; /* Color de texto claro */
-            }
+        body.dark-mode {
+            background-color: #343a40;
+            color: #ffffff;
+        }
 
         .sidebar {
             width: 250px;
-            background-color: #007bff;
+            background-color: #2a5298;
             border-right: 1px solid #e9ecef;
             height: 100vh;
             position: fixed;
@@ -29,79 +36,158 @@
             transition: transform 0.3s ease;
         }
 
-            .sidebar.hidden {
-                transform: translateX(-100%);
-            }
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
 
-            .sidebar a {
-                display: block;
-                color: #fff;
-                padding: 10px;
-                text-decoration: none;
-                border-radius: 5px;
-            }
+        .sidebar a {
+            display: block;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
 
-                .sidebar a:hover {
-                    background-color: rgba(255, 255, 255, 0.2);
-                }
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
         .content {
             margin-left: 270px;
             flex: 1;
             padding: 20px;
             transition: margin-left 0.3s ease;
+            max-width: 800px;
+            margin: auto;
         }
 
-            .content.shifted {
-                margin-left: 0;
-            }
+        .header, .create-post {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
 
-        .toggle-sidebar {
-            cursor: pointer;
-            font-size: 24px;
-            margin: 10px;
+        .header h1 {
+            font-size: 1.8em;
+            color: #2a5298;
+        }
+
+        .create-post h5 {
+            color: #2a5298;
         }
 
         .post {
-            background-color: #ffffff; /* Color de fondo claro de las publicaciones */
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+            border: 1px solid #ddd;
             padding: 15px;
-            margin: 20px auto;
-            max-width: 600px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-            .post.dark-mode {
-                background-color: #495057; /* Color de fondo oscuro para publicaciones */
-            }
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
 
+        .post-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 3px solid #2a5298;
+        }
+
+        .three-dots {
+            cursor: pointer;
+            color: #2a5298;
+            font-size: 1.5em;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .comment-container {
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 2px solid #ddd;
+        }
+
+        .reply-section {
+            display: none;
+            margin-top: 10px;
+            padding-left: 10px;
+        }
+
+        .reply-section textarea {
+            width: 100%;
+            resize: none;
+        }
+
+        .btn-primary {
+            background-color: #2a5298;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1a3f6e;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .show {
+            display: block;
+        }
     </style>
 </head>
 <body>
-
     <div class="sidebar" id="sidebar">
         <h4>Menú</h4>
-        <a href="#">Inicio</a>
-        <a href="Account/Profile">Mi Perfil</a>
-        <a href="#">Amigos</a>
-        <a href="#">Notificaciones</a>
-        <a href="#">Mensajes</a>
-        <a href="#">Configuración</a>
-        <a href="Account/Logout">Cerrar Sesión</a>
+        <a href="@Url.Action("Index", "Home")">Inicio</a>
+        <a href="@Url.Action("Profile", "Account")">Mi Perfil</a>
+        <a href="@Url.Action("Index", "Friends")">Amigos</a>
+        <a href="@Url.Action("Logout", "Account")">Cerrar Sesión</a>
     </div>
 
     <div class="content" id="content">
         <span class="toggle-sidebar" onclick="toggleSidebar()">&#9776;</span>
 
-        <div class="container">
-            <h2 class="text-center text-primary">Publicaciones</h2>
+        <div class="header">
+            <h1>Bienvenido a SRc Network</h1>
+            <p>Conéctate con tus amigos y el mundo.</p>
+        </div>
 
-            <div class="form-check form-switch mb-4" style="float: right;">
-                <input class="form-check-input" type="checkbox" id="themeSwitch" />
-                <label class="form-check-label" for="themeSwitch">Modo Oscuro</label>
-            </div>
+        <div class="form-check form-switch mb-4" style="float: right;">
+            <input class="form-check-input" type="checkbox" id="themeSwitch" />
+            <label class="form-check-label" for="themeSwitch">Modo Oscuro</label>
+        </div>
 
-            <form asp-action="CreatePost" method="post" enctype="multipart/form-data" class="mb-4">
+        @Html.AntiForgeryToken()
+
+        <div class="create-post">
+            <h5>Crear una Publicación</h5>
+            <form asp-action="CreatePost" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <textarea name="Content" class="form-control" rows="3" placeholder="Escribe tu publicación..." required></textarea>
                 </div>
@@ -109,85 +195,107 @@
                     <input type="file" name="ImagePath" class="form-control" accept="image/*" />
                     <input type="text" name="YoutubeUrl" class="form-control mt-2" placeholder="Enlace de Youtube" />
                 </div>
-                <button type="submit" class="btn btn-primary">Publicar</button>
+                <button type="submit" class="btn btn-primary w-100">Publicar</button>
             </form>
+        </div>
 
-            @foreach (var post in Model.Posts)
-            {
-                <div class="post" id="post-@post.Id">
-                    <div class="post-header d-flex align-items-center">
-                        <img src="@post.UserProfileImage" alt="Foto de perfil" class="rounded-circle" style="width: 50px; height: 50px; margin-right: 15px;" />
-                        <h3>@post.UserName</h3>
-                    </div>
-                    <p>@post.Content</p>
-                    @if (!string.IsNullOrEmpty(post.ImagePath))
-                    {
-                        <img src="@post.ImagePath" alt="Imagen" class="img-fluid mb-2" />
-                    }
-                    @if (!string.IsNullOrEmpty(post.YoutubeUrl))
-                    {
-                        <iframe width="100%" height="315" src="@post.YoutubeUrl" frameborder="0" allowfullscreen></iframe>
-                    }
-
-                    <h4 class="mt-4">Comentarios</h4>
-                    <div class="comment-container" id="comments-@post.Id">
-                        @foreach (var comment in post.Comments)
-                        {
-                            <div class="comment">
-                                <strong>@comment.UserName:</strong> @comment.Content
-                            </div>
-                        }
-                    </div>
-
-                    <form asp-action="CreateComment" method="post" class="mt-2">
-                        <input type="hidden" name="PostId" value="@post.Id" />
-                        <textarea name="Content" class="form-control" rows="2" placeholder="Escribe un comentario..." required></textarea>
-                        <button type="submit" class="btn btn-primary mt-2">Comentar</button>
-                    </form>
-
+        @foreach (var post in Model.Posts)
+        {
+            <div class="post" id="post-@post.Id">
+                <div class="post-header">
+                    <img src="@post.UserProfileImage" alt="Foto de perfil" />
+                    <h3>@post.UserName</h3>
                     @if (post.UserId == Model.CurrentUserId)
                     {
-                        <form asp-action="DeletePost" method="post" class="mt-2">
-                            <input type="hidden" name="id" value="@post.Id" />
-                            <button type="submit" class="btn btn-danger">Eliminar Publicación</button>
-                        </form>
+                        <div class="three-dots" onclick="toggleDropdown('dropdown-@post.Id')">⋮</div>
+                        <div class="dropdown-menu" id="dropdown-@post.Id">
+                            <form asp-action="DeletePost" method="post" style="margin: 0;">
+                                <input type="hidden" name="id" value="@post.Id" />
+                                <button type="submit" class="dropdown-item">Eliminar</button>
+                            </form>
+                        </div>
                     }
                 </div>
-            }
-        </div>
-    </div>
+                <p>@post.Content</p>
+                @if (!string.IsNullOrEmpty(post.ImagePath))
+                {
+                    <img src="@post.ImagePath" alt="Imagen" class="img-fluid mb-2" />
+                }
+                @if (!string.IsNullOrEmpty(post.YoutubeUrl))
+                {
+                    <iframe width="100%" height="315" src="@post.YoutubeUrl" frameborder="0" allowfullscreen></iframe>
+                }
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById("sidebar");
-            const content = document.getElementById("content");
+                <h4 class="mt-4">Comentarios</h4>
+                <div class="comment-container" id="comments-@post.Id">
+                    @foreach (var comment in post.Comments)
+                    {
+                        <div class="comment">
+                            <strong>@comment.UserName:</strong> @comment.Content
+                            @if (comment.UserId == Model.CurrentUserId)
+                            {
+                                <form asp-action="DeleteComment" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="@comment.Id" />
+                                    <button type="submit" class="delete-comment">Eliminar</button>
+                                </form>
+                            }
 
-            sidebar.classList.toggle("hidden");
-            content.classList.toggle("shifted");
+                            <button class="btn btn-secondary btn-sm mt-1" onclick="toggleReplySection('reply-@comment.Id')">Responder</button>
+                            <div class="reply-section" id="reply-@comment.Id">
+                                <form asp-action="CreateReply" method="post">
+                                    <input type="hidden" name="CommentId" value="@comment.Id" />
+                                    <textarea name="Content" class="form-control mb-2" rows="2" placeholder="Escribe una respuesta..."></textarea>
+                                    <button type="submit" class="btn btn-secondary btn-sm">Enviar Respuesta</button>
+                                </form>
+                            </div>
+
+                            @if (comment.Replies != null && comment.Replies.Any())
+                            {
+                                <div class="replies mt-3">
+                                    @foreach (var reply in comment.Replies)
+                                    {
+                                        <div class="comment ps-4">
+                                            <strong>@reply.UserName:</strong> @reply.Content
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <form asp-action="CreateComment" method="post">
+                    <input type="hidden" name="PostId" value="@post.Id" />
+                    <div class="mb-3">
+                        <textarea name="Content" class="form-control" rows="2" placeholder="Escribe un comentario..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Comentar</button>
+                </form>
+            </div>
         }
 
-        $(document).ready(function () {
-            // Al cargar la página, comprueba el tema
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-                $('body').addClass('dark-mode');
-                $('.post').addClass('dark-mode');
-                $('#themeSwitch').prop('checked', true);
-            }
+        @if (!Model.Posts.Any())
+        {
+            <p>No hay publicaciones disponibles.</p>
+        }
+    </div>
 
-            // Cambiar el tema al usar el switch
-            $('#themeSwitch').on('change', function () {
-                if ($(this).is(':checked')) {
-                    $('body').addClass('dark-mode');
-                    $('.post').addClass('dark-mode');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    $('body').removeClass('dark-mode');
-                    $('.post').removeClass('dark-mode');
-                    localStorage.setItem('theme', 'light');
-                }
-            });
+    <script>
+        function toggleDropdown(id) {
+            document.getElementById(id).classList.toggle('show');
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+            document.getElementById('content').classList.toggle('margin-left');
+        }
+
+        function toggleReplySection(id) {
+            document.getElementById(id).classList.toggle('show');
+        }
+
+        document.getElementById('themeSwitch').addEventListener('change', function () {
+            document.body.classList.toggle('dark-mode', this.checked);
         });
     </script>
 </body>

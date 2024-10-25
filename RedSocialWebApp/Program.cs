@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using RedSocial.Application;
-using RedSocial.Application.Interfaces.Repositories;
 using RedSocial.Application.Interfaces.Services;
-using RedSocial.Application.Services;
 using RedSocial.Domain.Settings;
+using RedSocial.Infraestructure.Persistence;
 using RedSocial.Infraestructure.Persistence.Context;
-using RedSocial.Infraestructure.Persistence.Repositories;
 using RedSocial.Infraestructure.Shared.Services;
 
 
@@ -32,14 +30,9 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAuthenticatedUser", policy => policy.RequireAuthenticatedUser());
 });
-
-builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IPostRepository, PostRepository>();
-builder.Services.AddScoped<ICommentRepository, CommentRepository>();
-builder.Services.AddScoped<IPostService, PostService>();
-builder.Services.AddScoped<ICommentService, CommentService>();
+
+RepositoryRegistration.RegisterRepositories(builder.Services);
 ServiceRegistration.RegisterService(builder.Services);
 
 var app = builder.Build();

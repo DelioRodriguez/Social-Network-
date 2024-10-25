@@ -19,6 +19,7 @@ namespace RedSocial.Infraestructure.Persistence.Repositories
             return await _context.Posts
                 .Include(p => p.User)
                 .Include(p => p.Comments)
+                .ThenInclude(p => p.Replies)
                 .ThenInclude(c => c.User)
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
@@ -27,7 +28,7 @@ namespace RedSocial.Infraestructure.Persistence.Repositories
         {
             return await _context.Posts
                 .Where(post => post.UserId == userId)
-                .Include(post => post.User) // Asegúrate de incluir la entidad de usuario para el mapeo
+                .Include(post => post.User) 
                 .ToListAsync();
         }
 

@@ -33,6 +33,10 @@ namespace RedSocial.Infraestructure.Shared.Services
                 email.Body = builder.ToMessageBody();
 
                 using var smtp = new SmtpClient();
+
+               
+                smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
                 await smtp.ConnectAsync(_mailSettings.SmtpHost, _mailSettings.SmtpPort, SecureSocketOptions.StartTls);
                 await smtp.AuthenticateAsync(_mailSettings.SmtpUser, _mailSettings.SmtpPass);
                 await smtp.SendAsync(email);
@@ -40,9 +44,8 @@ namespace RedSocial.Infraestructure.Shared.Services
             }
             catch (Exception ex)
             {
-                // Log the exception using a logging framework instead of Console.WriteLine
                 Console.WriteLine($"Error sending email: {ex.Message}");
-                throw; // Re-throw the exception to let the caller handle it
+                throw; 
             }
         }
     }

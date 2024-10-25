@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RedSocial.Infraestructure.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21c5b18e1c0cc991c65ac19c62980d52ebef3f1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ca1b3aa67089099a077dfa01e82024e0526e721")]
 [assembly: System.Reflection.AssemblyProductAttribute("RedSocial.Infraestructure.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RedSocial.Infraestructure.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

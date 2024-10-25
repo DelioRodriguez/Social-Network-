@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RedSocial.Application.Interfaces.Services;
-using RedSocial.Application.Services;
 using RedSocial.Application.ViewModel.Users;
 using System.Security.Claims;
 
@@ -51,9 +50,7 @@ namespace RedSocialWebApp.Controllers
                     ModelState.AddModelError(string.Empty, "Credenciales inválidas");
                     return View(model);
                 }
-
-                // Verifica que el Id esté presente antes de asignarlo a claims
-                if (user.Id == 0) // O null, dependiendo de tu tipo
+                if (user.Id == 0) 
                 {
                     ModelState.AddModelError(string.Empty, "Error al obtener el identificador del usuario.");
                     return View(model);
@@ -80,27 +77,22 @@ namespace RedSocialWebApp.Controllers
         }
         public async Task<IActionResult> Profile()
         {
-            // Obtener el ID del usuario actual desde los claims
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
 
             if (userIdClaim == null)
             {
-                return NotFound(); // O maneja el error según lo necesites
+                return NotFound(); 
             }
 
-            int userId = int.Parse(userIdClaim.Value); // Asegúrate de que el valor del claim se puede convertir a int
+            int userId = int.Parse(userIdClaim.Value); 
 
-            // Obtener usuario por ID
             var user = await _userService.GetByIdAsync(userId);
             if (user == null)
             {
                 return NotFound();
             }
 
-            // Obtener publicaciones del usuario
-            var posts = await _postService.GetPostsByUserIdAsync(userId); // Asegúrate de tener este método
-
-            // Crear modelo de vista
+            var posts = await _postService.GetPostsByUserIdAsync(userId);
             var model = new UserProfileViewModel
             {
                 ProfilePicture = user.ProfilePicture,

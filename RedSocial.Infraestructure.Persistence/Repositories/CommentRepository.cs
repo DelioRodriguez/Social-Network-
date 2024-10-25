@@ -20,9 +20,12 @@ namespace RedSocial.Infraestructure.Persistence.Repositories
             return await _context.Comments
                 .Where(c => c.PostId == postId)
                 .Include(c => c.User)
+                .Include(c => c.Replies)
+                    .ThenInclude(r => r.User) 
                 .OrderByDescending(c => c.CreatedAt)
                 .ToListAsync();
         }
+
         public async Task<Comment> GetByIdAsync(int id)
         {
             return await _context.Comments.FindAsync(id);

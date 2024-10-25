@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace RedSocial.Application.ViewModel.Comments
 {
@@ -13,6 +9,8 @@ namespace RedSocial.Application.ViewModel.Comments
         public string UserName { get; set; }
         public DateTime CreatedAt { get; set; }
         public int UserId { get; set; }
-        public int PostId { get; set; }
+        public string? UserProfileImage { get; set; }
+
+        public List<CommentReplyViewModel>? Replies { get; set; } = new List<CommentReplyViewModel>();
     }
 }
